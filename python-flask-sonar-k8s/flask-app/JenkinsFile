@@ -11,7 +11,7 @@ pipeline {
       steps {
         sh 'ls -ltr'
         // build the project and create a JAR file
-        sh 'cd python-flask-sonar-k8s/flask-app/src/main && python app.py'
+        sh 'cd python-flask-sonar-k8s/flask-app/src/main && python3 app.py'
       }
     }
     stage('Static Code Analysis') {
