@@ -27,7 +27,15 @@ pipeline {
       }
       steps {
         withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
-          sh 'cd python-flask-sonar-k8s\flask-app && sonar:sonar -Dsonar.login=$SONAR_AUTH_TOKEN -Dsonar.host.url=${SONAR_URL}'
+			dir('python-flask-sonar-k8s\flask-app'){
+				sh '''
+					sonar-scanner \
+                        -Dsonar.projectKey=flask-app \
+                        -Dsonar.sources=. \
+                        -Dsonar.login=$SONAR_AUTH_TOKEN \
+                        -Dsonar.host.url=${SONAR_URL}
+				'''
+			}
         }
       }
     }
