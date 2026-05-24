@@ -10,7 +10,6 @@ pipeline {
     stage('Execution') {
       steps {
         sh 'ls -ltr'
-        // build the project and create a JAR file
 		dir('python-flask-sonar-k8s/flask-app/src/main'){
 			sh '''
 				python3 -m venv venv
