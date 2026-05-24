@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: python-flask-app
-        image: bresh2411/ultimate-cicd:15
+        image: bresh2411/ultimate-cicd:replaceImageTag
         ports:
         - containerPort: 8080
