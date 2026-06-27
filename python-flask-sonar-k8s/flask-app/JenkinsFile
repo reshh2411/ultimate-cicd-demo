@@ -1,5 +1,10 @@
 pipeline {
-  agent any
+  agent {
+	docker {
+		image 'bresh2411/python-flask-sonar-k8s:v1'
+		args '--user root -v /var/run/docker.sock:/var/run/docker.sock'
+	}
+  }
   stages {
     stage('Checkout') {
       steps {
