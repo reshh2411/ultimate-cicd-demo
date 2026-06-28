@@ -69,8 +69,8 @@ pipeline {
         steps {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                 sh '''
-					git config user.email "bresh2411@gmail.com"
-                    git config user.name "Reshma B"
+					git config --global user.email "bresh2411@gmail.com"
+                    git config --global user.name "Reshma B"
                     BUILD_NUMBER=${BUILD_NUMBER}
                     sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" python-flask-sonar-k8s/flask-app-manifests/deployment.yml
                     git add python-flask-sonar-k8s/flask-app-manifests/deployment.yml
