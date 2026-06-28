@@ -17,9 +17,7 @@ pipeline {
         sh 'ls -ltr'
 		dir('python-flask-sonar-k8s/flask-app/src/main'){
 			sh '''
-				python3 -m venv venv
-                . venv/bin/activate
-                pip install --no-cache-dir -r requirements.txt
+				pip install --no-cache-dir -r requirements.txt --break-system-packages
                 python3 app.py &
 			'''
 		}
